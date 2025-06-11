@@ -78,12 +78,7 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 # DB files
-.db
-im.db
-zippedData/im.db
-im.db.zip
-.zip
-.db.zip
+
 
 # IPython
 profile_default/
