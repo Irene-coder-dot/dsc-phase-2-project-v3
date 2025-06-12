@@ -1,7 +1,7 @@
 
 <h1 align="center">MOVIE BUSINESS ANALYSIS</h1>
 
-![](./Images/movies_photo.jpg)
+![](./images/movies_photo.jpg)
 
 Image By: [Casie](https://www.pinterest.com/pin/443745369554193647/)
 
