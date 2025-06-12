@@ -13,6 +13,7 @@ Image By: [Casie](https://www.pinterest.com/pin/443745369554193647/)
 - *`Images/` — Saved plots and figures*
 - *`Data/` — Dataset files*
 - *`Presentation/` — Project summary slides PDF*
+- *`zippedData/` — Project zipped Data*
 
 ## Table of Contents
 1. *Business Understanding*
