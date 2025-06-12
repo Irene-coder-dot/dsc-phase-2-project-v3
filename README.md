@@ -1,281 +1,266 @@
-# Phase 2 Project Description
 
-You've made it through the second phase of this course, and now you will put your new skills to use with a large end-of-Phase project!
+<h1 align="center">MOVIE BUSINESS ANALYSIS</h1>
 
-In this project description, we will cover:
+![](./Images/movies_photo.jpg)
 
-* [***Project Overview:***](#project-overview) the project goal, audience, and dataset
-* [***Deliverables:***](#deliverables) the specific items you are required to produce for this project
-* [***Grading:***](#grading) how your project will be scored
-* [***Getting Started:***](#getting-started) guidance for how to begin your first project
+Image By: [Casie](https://www.pinterest.com/pin/443745369554193647/)
 
-## Project Overview
 
-For this project, you will use exploratory data analysis to generate insights for a business stakeholder.
+## Project Structure and Navigation
 
-### Business Problem
+- *`README.md` — Project documentation*
+- *`student.ipynb`  — Jupyter notebook for analysis*
+- *`Images/` — Saved plots and figures*
+- *`Data/` — Dataset files*
+- *`Presentation/` — Project summary slides PDF*
 
-Your company now sees all the big companies creating original video content and they want to get in on the fun. They have decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of your company's new movie studio can use to help decide what type of films to create.
+## Table of Contents
+1. *Business Understanding*
+2. *Data Understanding*
+3. *Exploratory Data Analysis (EDA)*
+4. *Conclusion and Recommendations*
+5. *Links and Resources* - *( Data Source)*
 
-### The Data
 
-In the folder `zippedData` are movie datasets from:
+![](./Images/modelbar.png)
 
-* [Box Office Mojo](https://www.boxofficemojo.com/)
-* [IMDB](https://www.imdb.com/)
-* [Rotten Tomatoes](https://www.rottentomatoes.com/)
-* [TheMovieDB](https://www.themoviedb.org/)
-* [The Numbers](https://www.the-numbers.com/)
+# 1. BUSINESS UNDERSTANDING 
+## Business Problem
 
-Because it was collected from various locations, the different files have different formats. Some are compressed CSV (comma-separated values) or TSV (tab-separated values) files that can be opened using spreadsheet software or `pd.read_csv`, while the data from IMDB is located in a SQLite database.
+The entertainment industry is undergoing rapid transformation, with original content emerging as a key driver of audience engagement and revenue growth. Major players like Netflix, Amazon, and other sources are heavily investing in original films —reaping substantial financial returns and strengthening their brand presence.
+Recognizing this trend, Flix company has made the strategic decision to launch a new movie studio. However, it currently lacks the data-driven insights necessary to understand what factors contribute to a film’s box office success.
+As data scientists, our role is to explore publicly available movie performance data to uncover patterns that indicates
+what makes a movie financially successful. The goal is to provide clear data- driven, actionable recommendations that will help guide decisions about genre, budget size, release timing, and other production choices.
 
-![movie data erd](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-2-project-v3/main/movie_data_erd.jpeg)
 
-Note that the above diagram shows ONLY the IMDB data. You will need to look carefully at the features to figure out how the IMDB data relates to the other provided data files.
 
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind, we recommend you use only the following data files:
+## Stakeholders and Use Cases
+Primary Stakeholder:
+Head of the New Movie Studio
 
-* `im.db.zip`
-  * Zipped SQLite database (you will need to unzip then query using SQLite)
-  * `movie_basics` and `movie_ratings` tables are most relevant
-* `bom.movie_gross.csv.gz`
-  * Compressed CSV file (you can open without expanding the file using `pd.read_csv`)
+Use Case:
+Leverage data-driven insights to inform strategic decisions on film production. This includes identifying high-performing genres, determining optimal budget ranges, selecting ideal release windows, and shaping casting strategies—all aimed at maximizing box office success and return on investment.
 
-### Key Points
+## Project Objectives
+* Identify which genres perform best at the box office, considering revenue and profitability.
 
-* **Your analysis should yield three concrete business recommendations.** The ultimate purpose of exploratory analysis is not just to learn about the data, but to help an organization perform better. Explicitly relate your findings to business needs by recommending actions that you think the business should take.
+* Analyze the impact of budget, runtime, cast, and release month on a film’s success.
 
-* **Communicating about your work well is extremely important.** Your ability to provide value to an organization - or to land a job there - is directly reliant on your ability to communicate with them about what you have done and why it is valuable. Create a storyline your audience (the head of the new movie studio) can follow by walking them through the steps of your process, highlighting the most important points and skipping over the rest.
+* Provide actionable recommendations for the types of films the company should produce.
 
-* **Use plenty of visualizations.** Visualizations are invaluable for exploring your data and making your findings accessible to a non-technical audience. Spotlight visuals in your presentation, but only ones that relate directly to your recommendations. Simple visuals are usually best (e.g. bar charts and line graphs), and don't forget to format them well (e.g. labels, titles).
+## Conclusion: Implications and Recommendations
 
-## Deliverables
+This project provides a data-driven foundation to support the successful launch of Flix company’s new movie studio while reducing financial risk. By uncovering the key factors that correlate with box office success, the Head of Studio is equipped to make informed, strategic decisions, including:
 
-There are three deliverables for this project:
+* Genre Selection: Focus on genres with a strong track record of performance.
 
-* A **non-technical presentation**
-* A **Jupyter Notebook**
-* A **GitHub repository**
+* Budget Planning: Allocate production budgets based on historically successful investment ranges.
 
-### Non-Technical Presentation
+* Release Strategy: Optimize release timing to align with peak audience engagement periods.
 
-The non-technical presentation is a slide deck presenting your analysis to business stakeholders.
+* Talent Strategy: Identify the cast and crew characteristics commonly linked to high-grossing films.
 
-* ***Non-technical*** does not mean that you should avoid mentioning the technologies or techniques that you used, it means that you should explain any mentions of these technologies and avoid assuming that your audience is already familiar with them.
-* ***Business stakeholders*** means that the audience for your presentation is the company, not the class or teacher. Do not assume that they are already familiar with the specific business problem.
+# 2. DATA UNDERSTANDING
 
-The presentation describes the project ***goals, data, methods, and results***. It must include at least ***three visualizations*** which correspond to ***three business recommendations***.
+## Data Sources
 
-We recommend that you follow this structure, although the slide titles should be specific to your project:
+This project uses data from three high-quality, complementary sources of movie data:
 
-1. Beginning
-    * Overview
-    * Business Understanding
-2. Middle
-    * Data Understanding
-    * Data Analysis
-3. End
-    * Recommendations
-    * Next Steps
-    * Thank You
-       * This slide should include a prompt for questions as well as your contact information (name and LinkedIn profile)
+### 1. Box Office Mojo (bom.movie_gross.csv.gz)
 
-You will give a live presentation of your slides and submit them in PDF format on Canvas. The slides should also be present in the GitHub repository you submit with a file name of `presentation.pdf`.
+Provides domestic box office revenue data.
 
-The graded elements of the presentation are:
+Includes key features such as: title, studio, domestic_gross, release_date, and year.
 
-* Presentation Content
-* Slide Style
-* Presentation Delivery and Answers to Questions
+used to determine the financial performance of films.
 
-See the [Grading](#grading) section for further explanation of these elements.
+ ### 2. TheMovieDB (TMDb) (tmdb.movies.csv.gz)
 
-For further reading on creating professional presentations, check out:
+TheMovieDb entails the following:
+* User-generated popularity 
+* voting data
 
-* [Presentation Content](https://github.com/learn-co-curriculum/dsc-project-presentation-content)
-* [Slide Style](https://github.com/learn-co-curriculum/dsc-project-slide-design)
+Key features: title, popularity, vote_average, vote_count, release_date, genres, budget, revenue
 
-### Jupyter Notebook
+Purpose: Complements Box Office Mojo and IMDb with:
 
-The Jupyter Notebook is a notebook that uses Python and Markdown to present your analysis to a data science audience.
+Popularity metrics: Show which films gain audience traction pre- and post-release
 
-* ***Python and Markdown*** means that you need to construct an integrated `.ipynb` file with Markdown (headings, paragraphs, links, lists, etc.) and Python code to create a well-organized, skim-able document.
-  * The notebook kernel should be restarted and all cells run before submission, to ensure that all code is runnable in order.
-  * Markdown should be used to frame the project with a clear introduction and conclusion, as well as introducing each of the required elements.
-* ***Data science audience*** means that you can assume basic data science proficiency in the person reading your notebook. This differs from the non-technical presentation.
+Vote data: Allows cross-comparison with IMDb ratings
 
-Along with the presentation, the notebook also describes the project ***goals, data, methods, and results***. It must include at least ***three visualizations*** which correspond to ***three business recommendations***.
+### 3. IMDb(Internet Movie Database) (im.db.zip)
 
-You will submit the notebook in PDF format on Canvas as well as in `.ipynb` format in your GitHub repository.
+Contains detailed metadata about films and user-ratings.
 
-The graded elements for the Jupyter Notebook are:
+Key tables used:
 
-* Business Understanding
-* Data Understanding
-* Data Preparation
-* Data Analysis
-* Visualization
-* Code Quality
+* movie_basics: Includes primary_title, original_title, genres, runtime_minutes, and start_year.
 
-See the [Grading](#grading) section for further explanation of these elements.
+* movie_ratings: Contains user rating data (average_rating, num_votes).
 
-### GitHub Repository
+used for movie characteristics and audience quality perceptions.
 
-The GitHub repository is the cloud-hosted directory containing all of your project files as well as their version history.
 
-This repository link will be the project link that you include on your resume, LinkedIn, etc. for prospective employers to view your work. Note that we typically recommend that 3 links are highlighted (out of 5 projects) so don't stress too much about getting this one to be perfect! There will also be time after graduation for cosmetic touch-ups.
+### 4. The Numbers (tn.movie_budgets.csv.gz)
 
-A professional GitHub repository has:
+It consits of  Film production budgets and worldwide gross
 
-1. `README.md`
-    * A file called `README.md` at the root of the repository directory, written in Markdown; this is what is rendered when someone visits the link to your repository in the browser
-    * This file contains these sections:
-       * Overview
-       * Business Understanding
-          * Include stakeholder and key business questions
-       * Data Understanding and Analysis
-          * Source of data
-          * Description of data
-          * Three visualizations (the same visualizations presented in the slides and notebook)
-       * Conclusion
-          * Summary of conclusions including three relevant findings
-2. Commit history
-   * Progression of updates throughout the project time period, not just immediately before the deadline
-   * Clear commit messages
-   * Commits from all team members (if a group project)
-3. Organization
-   * Clear folder structure
-   * Clear names of files and folders
-   * Easily-located notebook and presentation linked in the README
-4. Notebook(s)
-   * Clearly-indicated final notebook that runs without errors
-   * Exploratory/working notebooks (can contain errors, redundant code, etc.) from all team members (if a group project)
-5. `.gitignore`
-   * A file called `.gitignore` at the root of the repository directory instructs Git to ignore large, unnecessary, or private files
-     * Because it starts with a `.`, you will need to type `ls -a` in the terminal in order to see that it is there
-   * GitHub maintains a [Python .gitignore](https://github.com/github/gitignore/blob/master/Python.gitignore) that may be a useful starting point for your version of this file
-   * To tell Git to ignore more files, just add a new line to `.gitignore` for each new file name
-     * Consider adding `.DS_Store` if you are using a Mac computer, as well as project-specific file names
-     * If you are running into an error message because you forgot to add something to `.gitignore` and it is too large to be pushed to GitHub [this blog post](https://medium.com/analytics-vidhya/tutorial-removing-large-files-from-git-78dbf4cf83a?sk=c3763d466c7f2528008c3777192dfb95)(friend link) should help you address this
+Key Features:
 
-You wil submit a link to the GitHub repository on Canvas.
+* Release_date, movie, production_budget, domestic_gross, worldwide_gross
 
-See the [Grading](#grading) section for further explanation of how the GitHub repository will be graded.
+Why It Matters:
 
-For further reading on creating professional notebooks and `README`s, check out [this reading](https://github.com/learn-co-curriculum/dsc-repo-readability-v2-2).
+* Gives a complete financial picture by providing both the cost of making the film (production budget) and revenue generated globally.
 
-## Grading
+* Allows calculation of Return on Investment (ROI) — one of the most important metrics when deciding which types of films to produce.
 
-***To pass this project, you must pass each project rubric objective.*** The project rubric objectives for Phase 2 are:
+# 3. EXPLOLATORY DATA ANALYSIS (EDA)
+### a. Total Profit By Genre
 
-1. Data Communication
-2. Authoring Jupyter Notebooks
-3. Data Manipulation and Analysis with `pandas`
+This plot helps us identify the highest-earning genres in terms of raw profit.
 
-### Data Communication
+![](./images/Profit_by_Genre.png)
 
-Communication is a key "soft skill". In [this survey](https://www.payscale.com/data-packages/job-skills), 46% of hiring managers said that recent college grads were missing this skill.
+### We are able to see the following: 
 
-Because "communication" can encompass such a wide range of contexts and skills, we will specifically focus our Phase 2 objective on Data Communication. We define Data Communication as:
+* Action, Adventure, Sci-Fi, and Fantasy genres generally show the highest total profit.These genres attract large global audiences and usually get bigger production and marketing budgets — resulting in high box office returns.
+* Documentary, Music, and Experimental genres tend to have the lowest total profits, reflecting limited theatrical release, smaller audiences, and lower budgets.
+* Some genres may have high movie counts but low profit totals (e.g., Drama) — meaning many such films are made but are not huge moneymakers.
+* Others, like Fantasy or Sci-Fi, may have fewer movies but outsized profit contributions.
 
-> Communicating basic data analysis results to diverse audiences via writing and live presentation
+##  b. Analyze Impact of Budget, Runtime, and Number of Votes
 
-To further define some of these terms:
+![](./images/Budget_vs_Worldwide_Gross.png)
 
-* By "basic data analysis" we mean that you are filtering, sorting, grouping, and/or aggregating the data in order to answer business questions. This project does not involve inferential statistics or machine learning, although descriptive statistics such as measures of central tendency are encouraged.
-* By "results" we mean your ***three visualizations and recommendations***.
-* By "diverse audiences" we mean that your presentation and notebook are appropriately addressing a business and data science audience, respectively.
+### Our Typical Observations include:
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+ There is a  Positive Correlation:
+   
+  - Generally, higher production budgets lead to higher worldwide gross.
 
-#### Exceeds Objective
-Creates and describes appropriate visualizations for given business questions, where each visualization fulfills all elements of the checklist
+  - The scatter points will often trend upwards to the right, showing that spending more usually results in greater revenue but not always proportional.
 
-> This "checklist" refers to the Data Visualization checklist within the larger Phase 2 Project Checklist
+  - A long tail toward the right, shows that while only a few films make huge profits, they skew the average upward.
 
-#### Meets Objective (Passing Bar)
-Creates and describes appropriate visualizations for given business questions
+  - This is known as a right-skewed distribution, common in industries with high risk and high reward (like the film industry).
 
-> This objective can be met even if all checklist elements are not fulfilled. For example, if there is some illegible text in one of your visualizations, you can still meet this objective
+##  c. Profit Distribution
+![](./images/Profit_Distribution.png)
 
-#### Approaching Objective
-Creates visualizations that are not related to the business questions, or uses an inappropriate type of visualization
+### Our Typical Observations include:
 
-> Even if you create very compelling visualizations, you cannot pass this objective if the visualizations are not related to the business questions
+* A sharp peak near $0 or negative values, suggests that many films either break even or lose money.
 
-> An example of an inappropriate type of visualization would be using a line graph to show the correlation between two independent variables, when a scatter plot would be more appropriate
+* A long tail toward the right, shows that while only a few films make huge profits, they skew the average upward.
 
-#### Does Not Meet Objective
-Does not submit the required number of visualizations
+* This is known as a right-skewed distribution, common in industries with high risk and high reward (like the film industry).
 
-### Authoring Jupyter Notebooks
+## d. Runtime vs Worldwide Gross
+![](./images/Runtime_vs_World_wide_Gross.png)
 
-According to [Kaggle's 2020 State of Data Science and Machine Learning Survey](https://www.kaggle.com/kaggle-survey-2020), 74.1% of data scientists use a Jupyter development environment, which is more than twice the percentage of the next-most-popular IDE, Visual Studio Code. Jupyter Notebooks allow for reproducible, skim-able code documents for a data science audience. Comfort and skill with authoring Jupyter Notebooks will prepare you for job interviews, take-home challenges, and on-the-job tasks as a data scientist.
+### From our scatter plot, we observe that:
 
-The key feature that distinguishes *authoring Jupyter Notebooks* from simply *writing Python code* is the fact that Markdown cells are integrated into the notebook along with the Python cells in a notebook. You have seen examples of this throughout the curriculum, but now it's time for you to practice this yourself!
+* Scatter points are usually spread widely across all runtime values.
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+* A film’s length alone rarely predicts financial success.
 
-#### Exceeds Objective
-Uses Markdown and code comments to create a well-organized, skim-able document that follows all best practices
+* Many high-grossing films tend to cluster around 100–140 minutes. This is the sweet spot where blockbusters, action, and adventure films typically fall.
 
-> Refer to the [repository readability reading](https://github.com/learn-co-curriculum/dsc-repo-readability-v2-2) for more tips on best practices
+## e. Profit vs Number of IMDb votes
 
-#### Meets Objective (Passing Bar)
-Uses some Markdown to create an organized notebook, with an introduction at the top and a conclusion at the bottom
+![](./images/Profit_vs_Number_of_IMDb_votes.png)
 
-#### Approaching Objective
-Uses Markdown cells to organize, but either uses only headers and does not provide any explanations or justifications, or uses only plaintext without any headers to segment out sections of the notebook
+### From our observations, we find that:
 
-> Headers in Markdown are delineated with one or more `#`s at the start of the line. You should have a mixture of headers and plaintext (text where the line does not start with `#`)
+* Films with more IMDb votes tend to have higher profits.
 
-#### Does Not Meet Objective
-Does not submit a notebook, or does not use Markdown cells at all to organize the notebook
+* More audience engagement (votes) often reflects wider viewership and box office success.
 
-### Data Manipulation and Analysis with `pandas`
+* The points usually trend upwards as the number of votes increases.
 
-`pandas` is a very popular data manipulation library, with over 2 million downloads on Anaconda (`conda install pandas`) and over 19 million downloads on PyPI (`pip install pandas`) at the time of this writing. In our own internal data, we see that the overwhelming majority of Flatiron School DS grads use `pandas` on the job in some capacity.
+* Films with fewer votes (low popularity) show mixed profit outcomes — some lose money, while some gain.
 
-Unlike in base Python, where the Zen of Python says "There should be one-- and preferably only one --obvious way to do it", there is often more than one valid way to do something in `pandas`. However there are still more efficient and less efficient ways to use it. Specifically, the best `pandas` code is *performant* and *idiomatic*.
+* Films with very high IMDb votes (i.e., >100,000) almost always have positive profits.
 
-Performant `pandas` code utilizes methods and broadcasting rather than user-defined functions or `for` loops. For example, if you need to strip whitespace from a column containing string data, the best approach would be to use the [`pandas.Series.str.strip` method](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.strip.html) rather than writing your own function or writing a loop. Or if you want to multiply everything in a column by 100, the best approach would be to use broadcasting (e.g. `df["column_name"] * 100`) instead of a function or loop. You can still write your own functions if needed, but only after checking that there isn't a built-in way to do it.
+## f. Correlation Heatmap
 
-Idiomatic `pandas` code has variable names that are meaningful words or abbreviations in English, that are related to the purpose of the variables. You can still use `df` as the name of your DataFrame if there is only one main DataFrame you are working with, but as soon as you are merging multiple DataFrames or taking a subset of a DataFrame, you should use meaningful names. For example, `df2` would not be an idiomatic name, but `movies_and_reviews` could be.
+![](./images/Correlation_Heatmap.png)
 
-We also recommend that you rename all DataFrame columns so that their meanings are more understandable, although it is fine to have acronyms. For example, `"col1"` would not be an idiomatic name, but `"USD"` could be.
+### From our correlation heatmap we are able to observe that: 
 
-Below are the definitions of each rubric level for this objective. This information is also summarized in the rubric, which is attached to the project submission assignment.
+1. There is a strong Positive Correlation:
 
-#### Exceeds Objective
-Uses `pandas` to prepare data and answer business questions in an idiomatic, performant way
+* production_budget vs worldwide_gross: High Positive Correlation (~0.6 to 0.8)
 
-#### Meets Objective (Passing Bar)
-Successfully uses `pandas` to prepare data in order to answer business questions
+  Bigger budget films tend to earn higher worldwide gross — large-scale marketing, global releases, big-name casts drive this.
 
-> This includes projects that _occasionally_ use base Python when `pandas` methods would be more appropriate (such as using `enumerate()` on a DataFrame), or occasionally performs operations that do not appear to have any relevance to the business questions
+* production_budget vs profit: Moderate Positive Correlation
 
-#### Approaching Objective
-Uses `pandas` to prepare data, but makes significant errors
+  Higher budgets may lead to higher profit, but not always guaranteed — profits also depend on cost control and reception.
 
-> Examples of significant errors include: the result presented does not actually answer the stated question, the code produces errors, the code _consistently_ uses base Python when `pandas` methods would be more appropriate, or the submitted notebook contains significant quantities of code that is unrelated to the presented analysis (such as copy/pasted code from the curriculum or StackOverflow)
+2. We have a very Strong Positive Correlation (close to 1.0)
 
-#### Does Not Meet Objective
-Unable to prepare data using `pandas`
+* worldwide_gross vs profit
 
-> This includes projects that successfully answer the business questions, but do not use `pandas` (e.g. use only base Python, or use some other tool like R, Tableau, or Excel)
+  Profit is largely driven by worldwide gross, as expected. This is natural since profit = worldwide gross - production budget.
 
-## Getting Started
+3. We also have a Weak or No Correlation:
 
-Please start by reviewing the contents of this project description. If you have any questions, please ask your instructor ASAP.
+* runtime_minutes shows very low or negligible correlation with both profit and gross.
 
-Next, you will need to complete the [***Project Proposal***](#project_proposal) which must be reviewed by your instructor before you can continue with the project.
+  Confirms earlier finding: runtime does not significantly drive revenue or profit on its own.
 
-Then, you will need to create a GitHub repository. There are three options:
+* release_year has low correlation with other variables.
 
-1. Look at the [Phase 2 Project Templates and Examples repo](https://github.com/learn-co-curriculum/dsc-project-template) and follow the directions in the MVP branch.
-2. Fork the [Phase 2 Project Repository](https://github.com/learn-co-curriculum/dsc-phase-2-project-v3), clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
-3. Create a new repository from scratch by going to [github.com/new](https://github.com/new) and copying the data files from one of the above resources into your new repository. This approach will result in the most professional-looking portfolio repository, but can be more complicated to use. So if you are getting stuck with this option, try one of the above options instead.
+  Implies no strong trend over the years regarding budgets or profits in this dataset — unless the time window includes massive shifts (e.g., pandemic years).
 
-## Summary
+4. There is a possible Weak Positive Trend:
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+   Sometimes release_year vs production_budget shows a slight positive correlation — indicating that film budgets have gradually risen over the years.
+
+
+
+## g. Hypotheses Testing
+
+This is a one-tailed independent t-test comparing the average ratings of Action vs. non-Action movies.
+
+#### Null Hypothesis (H₀):
+
+Action movies do not have significantly higher average ratings than non-Action movies.
+ 
+#### Alternative Hypothesis (H₁):
+
+Action movies have significantly higher average ratings than non-Action movies.
+
+
+### Hypothesis Testing Results
+T-statistic: -0.7174
+One-tailed P-value: 0.2367
+Fail to reject the null hypothesis: No significant evidence that Action movies have higher ratings.
+
+
+### Hypothesis Testing Explanation
+If the p-value is less than alpha and the t-statistic is positive (i.e., Action movies have a higher mean), it rejects the null hypothesis, indicating statistical evidence that Action movies are rated higher.
+
+Otherwise, it fails to reject the null, meaning there's no strong evidence for a difference in the expected direction.
+
+### Hypothesis finding
+
+Fail to reject the null hypothesis: No significant evidence that Action movies have higher ratings.
+
+# 4. CONCLUSION & RECOMMENDATIONS
+Recommendations:
+1. Focus on Action, Adventure, and Sci-Fi genres which have the highest gross and profit.
+2. Films with higher budgets generally earn more, but profit should be considered carefully.
+3. Optimal runtimes appear around 120-150 minutes for blockbuster success.
+4. Build hype early to raise IMDb vote count, improving engagement and potentially profit.
+
+
+# 5. LINKS AND RESOURCES
+
+- **Dataset Source** :  [Box Office Mojo](https://www.boxofficemojo.com/) ,
+                        [IMDB](https://www.imdb.com/) , [TheMovieDB](https://www.themoviedb.org/), [The Numbers](https://www.the-numbers.com/)
+
+
+
