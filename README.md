@@ -220,6 +220,40 @@ This plot helps us identify the highest-earning genres in terms of raw profit.
 
    Sometimes release_year vs production_budget shows a slight positive correlation — indicating that film budgets have gradually risen over the years.
 
+### Linear Regression
+
+The goal is to predict Movie profit using linear regression by testing multiple numeric features i.e production budget , run time, average rating and number of votes
+
+![](./images/regression.png)
+
+Intercept: $4,925,123
+R-squared: 0.546
+RMSE: 129332520.437
+
+### From our Linear regression observations, we find that:
+
+*Intercept: 4925122.745559871* -this is the base profit when all inputs are zero
+*R-squared: 0.546* - how much of the variation profit our model can explain. its decent but not perfect. a moderate level of predictive power
+*RMSE: 129332520.437* -this is the root mean squared error- the prediction error in dollars which is high meaning movie profits are influenced by many other factors. 
+
+#### Model Coefficients
+
+we note run time is negative, meaning for every extra minute on a movie, profit reduces by $724k, Rating tend to have a big coefficient $7.26m for every 1 point increase in rating.
+
+#### Final Regression Summary
+
+Our model suggest that bigger budgets , more votes, and higher ratings help boost profit while longer run time slightly reduces it. 
+the model is decent as it explains 55% of point variation but still has large prediction errors - typical in thr movie industry due to complexity. 
+
+### Key Observations from the regression visual
+
+Most points cluster around the red line,showing the model captures the general profit trend.
+
+Spread increases at higher profits, indicating less accuracy for big hits
+
+R² ≈ 0.546 — model explains about 54.6% of profit variation
+
+Some clear outliers where predictions are way off
 
 
 ## g. Hypotheses Testing
